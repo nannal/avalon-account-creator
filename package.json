@@ -1,0 +1,21 @@
+{
+  "name": "avalon-account-creator",
+  "version": "0.0.1",
+  "description": "Makes accounts for DTube",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bs58": "^4.0.1",
+    "crypto-js": "^3.1.9-1",
+    "express": "^4.16.4",
+    "fetch": "^1.1.0",
+    "node-fetch": "^2.3.0",
+    "secp256k1": "^3.6.1"
+  }
+}

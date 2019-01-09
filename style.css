@@ -1,0 +1,41 @@
+body {
+  text-align: center;
+}
+
+#input-form {
+  width: 30%;
+  margin-top: 10%;
+  display: inline-block;
+
+}
+
+#input-field {
+    background-color: white;
+    border-width: 0px;
+    border-bottom: 2px solid #ddd !important;
+    border: grey;
+}
+
+#submit-button {
+  background-color: #EBEBEB;
+  color: #6C6C6C;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+#submit-button:hover {
+  background-color: #ddd;
+}
+
+
+input {
+  text-align: center;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
