@@ -6,6 +6,15 @@ var fetch = require("node-fetch");
 //config for user & key, env vars or hardcoded
 var sender = process.env.AVA_SENDER || "USER"
 var privKey = process.env.AVA_KEY|| "KEY"
+//Config for Avalon node we'll be talking to
+var avaPort = process.env.AVA_PORT || 3001
+var avaAddr = process.env.AVA_ADDR || "localhost"
+//HTTP or HTTPS on remote avalon node
+Boolean avaHttps = process.env.AVA_HTTPS || 0
+var httpMethod = "http"
+if (avaHttps){
+ var httpMethod = "https"
+}
 
 let sign = (privKey, sender, tx) => {
 	// will return a new transaction with a hash and a signature
@@ -22,9 +31,7 @@ let sign = (privKey, sender, tx) => {
 }
 
 function sendTx(tx) {
-	var avaPort = process.env.AVA_PORT || 3001
-	var avaAddr = process.env.AVA_ADDR || "localhost"
-	fetch('http://'+avaAddr+':'+avaPort+'/transact', {
+	fetch(httpMethod+'://'+avaAddr+':'+avaPort+'/transact', {
 		method: 'post',
 		headers: {
 		  'Accept': 'application/json, text/plain, */*',

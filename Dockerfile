@@ -8,6 +8,6 @@ ENV AVA_SENDER 'USER'
 ENV AVA_KEY 'KEY'
 ENV AVA_PORT '3001'
 ENV AVA_ADDR 'LOCALHOST'
+EBV AVA_HTTPS '1'
 ENV PORT '8080'
-ENV PEERS 'ws://api.avalon.wtf:6001,ws://avalon.nannal.com:6001,ws://82.66.109.22:6001'
 CMD ["npm", "start"]

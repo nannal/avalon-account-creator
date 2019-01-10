@@ -3,6 +3,8 @@ var path = require("path");
 const bodyParser = require("body-parser");
 var {cmds, sendTx} = require("./script.js");
 
+//config for port our service will use
+var port = process.env.PORT || 8080
 
 const app = express();
 
@@ -27,5 +29,4 @@ app.post("/createAccount", function (req, res){
 
      };
 });
-var port = process.env.PORT || 8080
 app.listen(port);
