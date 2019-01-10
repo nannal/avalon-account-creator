@@ -10,9 +10,9 @@ var privKey = process.env.AVA_KEY|| "KEY"
 var avaPort = process.env.AVA_PORT || 3001
 var avaAddr = process.env.AVA_ADDR || "localhost"
 //HTTP or HTTPS on remote avalon node
-Boolean avaHttps = process.env.AVA_HTTPS || 0
+var avaHttps = process.env.AVA_HTTPS || 0
 var httpMethod = "http"
-if (avaHttps){
+if (avaHttps==0){
  var httpMethod = "https"
 }
 
