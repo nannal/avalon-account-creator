@@ -9,12 +9,6 @@ var privKey = process.env.AVA_KEY|| "KEY"
 //Config for Avalon node we'll be talking to
 var avaPort = process.env.AVA_PORT || 3001
 var avaAddr = process.env.AVA_ADDR || "localhost"
-//HTTP or HTTPS on remote avalon node
-var avaHttps = process.env.AVA_HTTPS || 0
-var httpMethod = "http"
-if (avaHttps==1){
- var httpMethod = "https"
-}
 
 let sign = (privKey, sender, tx) => {
 	// will return a new transaction with a hash and a signature
@@ -31,7 +25,7 @@ let sign = (privKey, sender, tx) => {
 }
 
 function sendTx(tx) {
-  console.log("Sending to: "+ httpMethod+'://'+avaAddr+':'+avaPort+'/transact')
+
 	fetch(httpMethod+'://'+avaAddr+':'+avaPort+'/transact', {
 		method: 'post',
 		headers: {
