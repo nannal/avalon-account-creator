@@ -10,10 +10,12 @@ const app = express();
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 
+app.get("/style.css", function (req, res){
+res.sendFile(path.join(__dirname + '/style.css'));
+});
+
 app.get("/", function (req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
-    res.sendFile(path.join(__dirname + '/style.css'));
-    res.sendFile(path.join(__dirname + '/script.js'));
 });
 
 app.post("/createAccount", function (req, res){
