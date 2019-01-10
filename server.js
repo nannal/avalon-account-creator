@@ -25,7 +25,7 @@ app.post("/createAccount", function (req, res){
 
     } else {
        sendTx(cmds.createAccount(userPubKey, userPubKey.toLowerCase() ));
-       res.end("Account Generated");
+       res.end(userPubKey.toLowerCase()+" Account Generated");
 
      };
 });
