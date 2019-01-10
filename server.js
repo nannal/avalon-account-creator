@@ -10,17 +10,12 @@ const app = express();
 
 app.use(bodyParser.urlencoded( {extended: true} ));
 
-app.get("/style.css", function (req, res){
-  res.sendFile(path.join(__dirname + '/style.css'));
-});
-
 app.get("/", function (req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post("/createAccount", function (req, res){
      var userPubKey = req.body.userpubkey;
-     console.log(userPubKey.length)
      if (!userPubKey.length === [44-45]){
       res.end("Incorrect Input");
 
