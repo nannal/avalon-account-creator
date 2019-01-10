@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded( {extended: true} ));
 
 app.get("/style.css", function (req, res){
-res.sendFile('style.css');
+  res.sendFile(path.join(__dirname + '/style.css'));
 });
 
 app.get("/", function (req, res){
