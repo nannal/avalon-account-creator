@@ -32,10 +32,13 @@ app.post("/createAccount", function (req, res){
 
 
       function cb(err, block) {
-         if (err)
+         if (err) {
           console.log(err);
-         if (block)
+          res.end(err.error);
+        } else if (block) {
           console.log(block);
+          res.end(userPubKey.toLowerCase()+" Account was created in Block "+ block._id);
+        };
       };
 
    var userPubKey = req.body.userpubkey;
