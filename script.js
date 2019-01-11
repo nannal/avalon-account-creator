@@ -24,19 +24,19 @@ let sign = (privKey, sender, tx) => {
 	return tx
 }
 
-function sendTx(tx) {
-
-	fetch(httpMethod+'://'+avaAddr+':'+avaPort+'/transact', {
-		method: 'post',
-		headers: {
-		  'Accept': 'application/json, text/plain, */*',
-		  'Content-Type': 'application/json'
-		},
-		body: JSON.stringify(tx)
-	}).then(function(res) {
-		console.log(res.statusText)
-	});
-}
+// function sendTx(tx) {
+//
+// 	fetch(httpMethod+'://'+avaAddr+':'+avaPort+'/transact', {
+// 		method: 'post',
+// 		headers: {
+// 		  'Accept': 'application/json, text/plain, */*',
+// 		  'Content-Type': 'application/json'
+// 		},
+// 		body: JSON.stringify(tx)
+// 	}).then(function(res) {
+// 		console.log(res.statusText)
+// 	});
+// }
 
 
 let cmds = {
@@ -46,4 +46,4 @@ let cmds = {
   }
 }
 
-module.exports =  { cmds, sendTx}
+module.exports =  cmds

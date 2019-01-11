@@ -1,7 +1,7 @@
 const express = require("express");
 var path = require("path");
 const bodyParser = require("body-parser");
-var {cmds, sendTx} = require("./script.js");
+var cmds = require("./script.js");
 var avalon = require("./avalon.js")
 
 
@@ -22,16 +22,11 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.get("/", function (req, res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
-console.log(avalon.config.api[0])
+
+console.log(avalon.randomNode());
+
 app.post("/createAccount", function (req, res){
      var userPubKey = req.body.userpubkey;
-     if (!userPubKey.length === [44-45]){
-      res.end("Incorrect Input");
-
-    } else if ( !Boolean(userPubKey.match(/^[a-zA-Z0-9]+$/)) ){
-      res.end("Incorrect Input");
-    } else {
-       avalon.sendTransaction(cmds.createAccount(userPubKey, userPubKey.toLowerCase() ), res.end;
-     };
+       avalon.sendTransaction(cmds.createAccount(userPubKey, userPubKey.toLowerCase() ), res.end);
 });
 app.listen(port);

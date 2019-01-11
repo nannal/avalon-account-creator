@@ -15,7 +15,10 @@ avalon = {
     init: (config) => {
         avalon.config = config
     },
-    sendTransaction: (tx, cb) => {
+    randomNode: () => {
+        var nodes = avalon.config.api
+        return nodes[Math.floor(Math.random()*nodes.length)]
+    },sendTransaction: (tx, cb) => {
         avalon.sendRawTransaction(tx, function(error, headBlock) {
             if (error) {
                 cb(error)
@@ -30,7 +33,7 @@ avalon = {
         })
     },
     sendRawTransaction: (tx, cb) => {
-        fetch(avalon.config.api[0]+'/transact', {
+        fetch(avalon.randomNode()+'/transact', {
             method: 'post',
             headers: {
               'Accept': 'application/json, text/plain, */*',
@@ -52,7 +55,7 @@ avalon = {
     },
     verifyTransaction: (tx, headBlock, retries, cb) => {
         var nextBlock = headBlock+1
-        fetch(avalon.config.api[0]+'/block/'+nextBlock, {
+        fetch(avalon.randomNode()+'/block/'+nextBlock, {
             method: 'get',
             headers: {
               'Accept': 'application/json, text/plain, */*',
