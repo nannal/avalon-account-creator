@@ -18,7 +18,8 @@ avalon = {
     randomNode: () => {
         var nodes = avalon.config.api
         return nodes[Math.floor(Math.random()*nodes.length)]
-    },sendTransaction: (tx, cb) => {
+    },
+    sendTransaction: (tx, cb) => {
         avalon.sendRawTransaction(tx, function(error, headBlock) {
             if (error) {
                 cb(error)

@@ -15,6 +15,8 @@ if (avaHttps==0){
 //config for port our service will use
 var port = process.env.PORT || 8080
 
+
+
 const app = express();
 
 app.use(bodyParser.urlencoded( {extended: true} ));
@@ -26,7 +28,18 @@ app.get("/", function (req, res){
 console.log(avalon.randomNode());
 
 app.post("/createAccount", function (req, res){
-     var userPubKey = req.body.userpubkey;
-       avalon.sendTransaction(cmds.createAccount(userPubKey, userPubKey.toLowerCase() ), res.end);
+
+
+
+      function cb(err, block) {
+         if (err)
+          console.log(err);
+         if (block)
+          console.log(block);
+      };
+
+   var userPubKey = req.body.userpubkey;
+   avalon.sendTransaction(cmds.createAccount(userPubKey, userPubKey.toLowerCase() ), cb);
+
 });
 app.listen(port);
